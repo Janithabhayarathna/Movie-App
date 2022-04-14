@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Movies to DB"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/searchMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search for Movies"
@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.598" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/searchActor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search for Actors"
