@@ -1,8 +1,8 @@
 package com.example.movieapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.room.Room
@@ -41,6 +41,11 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+        }
+
+        searchMovie.setOnClickListener {
+            val movieWindow = Intent(this, SearchMovies::class.java)
+            startActivity(movieWindow)
         }
     }
 

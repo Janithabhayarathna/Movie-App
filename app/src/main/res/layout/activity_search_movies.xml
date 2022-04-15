@@ -7,7 +7,7 @@
     tools:context=".SearchMovies">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/retreiveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retrieve Movie"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.111" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/saveMovieBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save movie to Database"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.945" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/movieName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -42,10 +42,11 @@
         app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.115"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
