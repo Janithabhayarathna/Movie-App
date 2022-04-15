@@ -5,6 +5,7 @@ import androidx.room.*
 data class Movie(
 
     @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val title: String,
     val year: String?,
     val rated: String?,

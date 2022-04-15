@@ -2,14 +2,15 @@ package com.example.movieapp
 
 import androidx.room.*
 
+@Dao
 interface MovieDao {
 
     @Query("SELECT * FROM movie")
     suspend fun getAll(): List<Movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUsers(vararg user: Movie)
+    suspend fun insertMovies(vararg movie: Movie)
     @Insert
-    suspend fun insertAll(vararg users: Movie)
+    suspend fun insertAll(vararg movie: Movie)
 
 }
