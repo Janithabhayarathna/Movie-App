@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintVertical_bias="0.421" />
 
     <Button
         android:id="@+id/searchMovie"
@@ -46,8 +46,8 @@
         android:id="@+id/imageView4"
         android:layout_width="382dp"
         android:layout_height="486dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="428dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/reel" />
@@ -56,7 +56,7 @@
         android:id="@+id/imageView5"
         android:layout_width="322dp"
         android:layout_height="445dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
         android:layout_height="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415"

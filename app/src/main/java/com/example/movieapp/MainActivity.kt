@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         val searchMovie = findViewById<Button>(R.id.searchMovie)
         val searchActor = findViewById<Button>(R.id.searchActor)
 
-        val text = findViewById<TextView>(R.id.textView)
-
         addMovie.setOnClickListener {
 
             val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()
@@ -33,12 +31,6 @@ class MainActivity : AppCompatActivity() {
                     val movie4 = Movie(4,"Inception", "2010", "PG-13", "16 Jul 2010", "148 min", "Action, Adventure, Sci-Fi", "Christopher Nolan", "Christopher Nolan","Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page","A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster")
                     val movie5 = Movie(5,"The Matrix", "1999", "R", "31 Mar 1999", "136 min", "Action, Sci-Fi", "Lana Wachowski, Lilly Wachowski", "Lilly Wachowski, Lana Wachowski","Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss","When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.")
                     movieDao.insertMovies(movie1, movie2, movie3, movie4, movie5)
-
-                    val movies: List<Movie> = movieDao.getAll()
-                    for (movie in movies) {
-                        text.append(movie.title + "\n" + movie.year + "\n" + movie.rated + "\n" + movie.released + "\n" + movie.genre + "\n" + movie.director + "\n" + movie.writer + "\n" + movie.actors + "\n" + movie.plot + "\n")
-                    }
-
                 }
             }
         }
