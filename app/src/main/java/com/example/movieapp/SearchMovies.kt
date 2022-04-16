@@ -77,8 +77,13 @@ class SearchMovies : AppCompatActivity() {
 
             runBlocking {
                 launch {
-                    val movie = Movie(6, title, year, rated, released, runtime, genre, director, writer, actors, plot)
-                    movieDao.insertMovies(movie)
+                    val insertMovie = Movie(6, title, year, rated, released, runtime, genre, director, writer, actors, plot)
+                    movieDao.insertMovies(insertMovie)
+
+                    val movies: List<Movie> = movieDao.getAll()
+                    for (movie in movies) {
+                        textOut.append(movie.title + "\n" + movie.year + "\n" + movie.rated + "\n" + movie.released + "\n" + movie.genre + "\n" + movie.director + "\n" + movie.writer + "\n" + movie.actors + "\n" + movie.plot + "\n")
+                    }
                 }
             }
         }
@@ -100,7 +105,7 @@ class SearchMovies : AppCompatActivity() {
         actors = json["Actors"].toString()
         plot = json["Plot"].toString()
 
-        info = "Title: $title\n, Year: $year\n, Rated: $rated\n, Released: $released\n, Runtime: $runtime, Genre: $genre\n, Director: $director\n, Writer: $writer\n, Actors: $actors\n, Plot: $plot"
+        info = " Title: $title\n Year: $year\n Rated: $rated\n Released: $released\n Runtime: $runtime\n Genre: $genre\n Director: $director\n Writer: $writer\n Actors: $actors\n Plot: $plot"
         return info
     }
 }

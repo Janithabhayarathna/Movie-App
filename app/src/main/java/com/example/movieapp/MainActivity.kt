@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
                     val movies: List<Movie> = movieDao.getAll()
                     for (movie in movies) {
-                        text.append(movie.title + "\n")
+                        text.append(movie.title + "\n" + movie.year + "\n" + movie.rated + "\n" + movie.released + "\n" + movie.genre + "\n" + movie.director + "\n" + movie.writer + "\n" + movie.actors + "\n" + movie.plot + "\n")
                     }
 
                 }
@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         searchMovie.setOnClickListener {
             val movieWindow = Intent(this, SearchMovies::class.java)
             startActivity(movieWindow)
+        }
+
+        searchActor.setOnClickListener {
+            val actorWindow = Intent(this, SearchActors::class.java)
+            startActivity(actorWindow)
         }
     }
 
