@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.room.Room
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -14,14 +15,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initialize the elements
         val addMovie = findViewById<Button>(R.id.addMovie)
         val searchMovie = findViewById<Button>(R.id.searchMovie)
         val searchActor = findViewById<Button>(R.id.searchActor)
 
+        // Add a movie
         addMovie.setOnClickListener {
 
-            val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()
-            val movieDao = db.movieDao()
+            Toast.makeText(this, "➕Movies added to the database.", Toast.LENGTH_LONG).show()
+            val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()  // Create a database
+            val movieDao = db.movieDao()  // Create a DAO
 
             runBlocking {
                 launch {
@@ -30,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     val movie3 = Movie(3,"The Lord of the Rings: The Return of the King", "2003", "PG-13", "17 Dec 2003", "201 min", "Action, Adventure, Drama", "Peter Jackson", "J.R.R. Tolkien, Fran Walsh, Philippa Boyens","Elijah Wood, Viggo Mortensen, Ian McKellen","Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.")
                     val movie4 = Movie(4,"Inception", "2010", "PG-13", "16 Jul 2010", "148 min", "Action, Adventure, Sci-Fi", "Christopher Nolan", "Christopher Nolan","Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page","A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster")
                     val movie5 = Movie(5,"The Matrix", "1999", "R", "31 Mar 1999", "136 min", "Action, Sci-Fi", "Lana Wachowski, Lilly Wachowski", "Lilly Wachowski, Lana Wachowski","Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss","When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.")
-                    movieDao.insertMovies(movie1, movie2, movie3, movie4, movie5)
+                    movieDao.insertMovies(movie1, movie2, movie3, movie4, movie5)   // Insert the movies in to the database
                 }
             }
         }

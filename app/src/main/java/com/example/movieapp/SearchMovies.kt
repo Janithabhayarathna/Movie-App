@@ -33,6 +33,7 @@ class SearchMovies : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_movies)
 
+        // Initialize the elements
         val movie = findViewById<EditText>(R.id.movieName)
         val textOut = findViewById<TextView>(R.id.output)
         val btn = findViewById<Button>(R.id.retreiveBtn)
@@ -40,29 +41,33 @@ class SearchMovies : AppCompatActivity() {
 
         btn?.setOnClickListener {
 
-            val movieName = movie!!.text.toString().trim()
-            val urlString = "https://www.omdbapi.com/?t=$movieName&apikey=ff95b66";
+            val movieName = movie!!.text.toString().trim()  // Get the movie name
+            if (movieName.isEmpty()) {
+                Toast.makeText(this, "❗Please enter a movie name", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val urlString = "https://www.omdbapi.com/?t=$movieName&apikey=ff95b66"; // URL to get the movie details
 
             var data: String = ""
             runBlocking {
                     withContext(Dispatchers.IO) {
                         val stb = StringBuilder("")
 
-                        val url = URL(urlString)
-                        val con = url.openConnection() as HttpURLConnection
-                        val bf: BufferedReader
+                        val url = URL(urlString)    // Create the URL
+                        val con = url.openConnection() as HttpURLConnection // Open the connection
+                        val bf: BufferedReader  // Create the buffer reader
                         try {
-                            bf = BufferedReader(InputStreamReader(con.inputStream))
+                            bf = BufferedReader(InputStreamReader(con.inputStream)) // Read the data
                         } catch (e: IOException) {
                             e.printStackTrace()
                             return@withContext
                         }
-                        var line = bf.readLine()
+                        var line = bf.readLine()    // Read the data
                         while (line != null) {
                             stb.append(line)
                             line = bf.readLine()
                         }
-                        data = parseJSON(stb)
+                        data = parseJSON(stb)    // Parse the data
 
                     }
 
@@ -72,15 +77,15 @@ class SearchMovies : AppCompatActivity() {
 
         btnSave?.setOnClickListener {
 
-            val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()
-            val movieDao = db.movieDao()
+            val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()  // Create the database
+            val movieDao = db.movieDao()    // Create the DAO
 
             runBlocking {
                 launch {
                     val insertMovie = Movie(6, title, year, rated, released, runtime, genre, director, writer, actors, plot)
-                    movieDao.insertMovies(insertMovie)
+                    movieDao.insertMovies(insertMovie)  // Insert the movie
 
-                    val movies: List<Movie> = movieDao.getAll()
+                    val movies: List<Movie> = movieDao.getAll()   // Get all the movies
                     for (movie in movies) {
                         textOut.append(movie.title + "\n" + movie.year + "\n" + movie.rated + "\n" + movie.released + "\n" + movie.genre + "\n" + movie.director + "\n" + movie.writer + "\n" + movie.actors + "\n" + movie.plot + "\n")
                     }
@@ -92,8 +97,9 @@ class SearchMovies : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     suspend fun parseJSON(stb: StringBuilder): String {
 
-        var info:String = "bla"
+        var info:String = " "
         val json = JSONObject(stb.toString()) //convert string to JSON object
+        // Getting the value of the relevant key.
         title = json["Title"].toString()
         year = json["Year"].toString()
         rated = json["Rated"].toString()
