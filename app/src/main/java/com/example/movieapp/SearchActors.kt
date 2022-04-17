@@ -11,6 +11,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class SearchActors : AppCompatActivity() {
+
+    private var out: ArrayList<String> = ArrayList<String>()
+    lateinit var output: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_actors)
@@ -18,7 +22,7 @@ class SearchActors : AppCompatActivity() {
         // Initialize the elements
         val actor = findViewById<EditText>(R.id.actorName)
         val searchBtn = findViewById<Button>(R.id.btnSearch)
-        val output = findViewById<TextView>(R.id.out)
+        output = findViewById<TextView>(R.id.out)
 
         searchBtn.setOnClickListener {
 
@@ -45,7 +49,28 @@ class SearchActors : AppCompatActivity() {
             }
             for (i in 0 until moviesList.size){
                 output.append(moviesList[i].title + "\n")
+                out.add(moviesList[i].title)
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState : Bundle) {   //Saving the current data as bundle
+        super.onSaveInstanceState(outState)
+
+        outState.putStringArrayList("out", out)
+    }
+
+        /**
+         * On restore instance state
+         *
+         * @param savedInstanceState
+         */
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {   //Getting the saved data(Restoring)
+        super.onRestoreInstanceState(savedInstanceState)
+
+        out = savedInstanceState.getStringArrayList("out")!!
+            for (i in 0 until out.size){
+                output.append(out[i] + "\n")
+            }
     }
 }

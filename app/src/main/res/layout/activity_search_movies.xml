@@ -45,19 +45,6 @@
         app:layout_constraintVertical_bias="0.15"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/teal_200"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="35sp"
@@ -73,9 +60,11 @@
         android:id="@+id/imageView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/movies"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="142dp" />
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="148dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/movies" />
 
     <ImageView
         android:id="@+id/imageView16"
@@ -91,8 +80,8 @@
         android:id="@+id/imageView18"
         android:layout_width="109dp"
         android:layout_height="108dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="348dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="324dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/popcorn" />
@@ -114,5 +103,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
+
+    <TextView
+        android:id="@+id/movieText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

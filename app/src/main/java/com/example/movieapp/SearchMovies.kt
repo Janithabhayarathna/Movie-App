@@ -27,6 +27,8 @@ class SearchMovies : AppCompatActivity() {
     lateinit var writer: String
     lateinit var actors: String
     lateinit var plot: String
+    private var info = ""
+    private lateinit var textOut: TextView
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +37,10 @@ class SearchMovies : AppCompatActivity() {
 
         // Initialize the elements
         val movie = findViewById<EditText>(R.id.movieName)
-        val textOut = findViewById<TextView>(R.id.output)
+        textOut = findViewById(R.id.movieText)
         val btn = findViewById<Button>(R.id.retreiveBtn)
         val btnSave = findViewById<Button>(R.id.saveMovieBtn)
+
 
         btn?.setOnClickListener {
 
@@ -48,7 +51,8 @@ class SearchMovies : AppCompatActivity() {
             }
             val urlString = "https://www.omdbapi.com/?t=$movieName&apikey=ff95b66"; // URL to get the movie details
 
-            var data: String = ""
+            var data = ""
+
             runBlocking {
                     withContext(Dispatchers.IO) {
                         val stb = StringBuilder("")
@@ -68,11 +72,9 @@ class SearchMovies : AppCompatActivity() {
                             line = bf.readLine()
                         }
                         data = parseJSON(stb)    // Parse the data
-
                     }
-
             }
-            textOut?.text = data
+            textOut.text = data
         }
 
         btnSave?.setOnClickListener {
@@ -87,17 +89,34 @@ class SearchMovies : AppCompatActivity() {
 
                     val movies: List<Movie> = movieDao.getAll()   // Get all the movies
                     for (movie in movies) {
-                        textOut.append(movie.title + "\n" + movie.year + "\n" + movie.rated + "\n" + movie.released + "\n" + movie.genre + "\n" + movie.director + "\n" + movie.writer + "\n" + movie.actors + "\n" + movie.plot + "\n")
+                        textOut.append(movie.title + "\n " + movie.year + "\n " + movie.rated + "\n " + movie.released + "\n " + movie.genre + "\n " + movie.director + "\n " + movie.writer + "\n " + movie.actors + "\n " + movie.plot)
                     }
                 }
             }
         }
     }
 
+    override fun onSaveInstanceState(outState : Bundle) {   //Saving the current data as bundle
+        super.onSaveInstanceState(outState)
+
+        outState.putString("out", info)
+    }
+
+    /**
+     * On restore instance state
+     *
+     * @param savedInstanceState
+     */
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {   //Getting the saved data(Restoring)
+        super.onRestoreInstanceState(savedInstanceState)
+
+        info = savedInstanceState.getString("out"," ")
+        textOut.text = info
+    }
+
     @SuppressLint("SetTextI18n")
     suspend fun parseJSON(stb: StringBuilder): String {
 
-        var info:String = " "
         val json = JSONObject(stb.toString()) //convert string to JSON object
         // Getting the value of the relevant key.
         title = json["Title"].toString()
