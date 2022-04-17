@@ -14,10 +14,10 @@
         android:text="Retrieve Movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.639"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.239" />
 
     <Button
         android:id="@+id/saveMovieBtn"
@@ -39,10 +39,10 @@
         android:inputType="textAutoCorrect|textPersonName|textAutoComplete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_bias="0.237"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -74,45 +74,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/movies"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="142dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="172dp" />
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="266dp"
         android:layout_height="410dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginEnd="220dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="524dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ticket" />
 
     <ImageView
         android:id="@+id/imageView18"
-        android:layout_width="109dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="348dp"
+        android:layout_width="155dp"
+        android:layout_height="228dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="640dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/popcorn" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="monospace"
         android:text="Movie Finder"
         android:textColor="@color/purple_700"
-        android:textColorHighlight="@color/black"
-        android:textColorHint="@color/teal_200"
-        android:textColorLink="@color/teal_200"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
