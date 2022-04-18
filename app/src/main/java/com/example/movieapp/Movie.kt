@@ -4,8 +4,7 @@ import androidx.room.*
 @Entity
 data class Movie(
 
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
     val title: String,
     val year: String?,
     val rated: String?,

@@ -9,21 +9,21 @@
 
     <Button
         android:id="@+id/retreiveBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:text="Retrieve Movie"
+        android:text=" 🔎 Retrieve Movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.136" />
 
     <Button
         android:id="@+id/saveMovieBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save movie to Database"
+        android:text="📂 Save movie to Database"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,29 +32,19 @@
 
     <EditText
         android:id="@+id/movieName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="42dp"
+        android:background="@drawable/textview"
         android:ems="10"
-        android:hint="Movie name"
+        android:hint=" Movie name"
         android:inputType="textAutoCorrect|textPersonName|textAutoComplete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_bias="0.145"
         tools:ignore="TouchTargetSizeCheck" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="35sp"
-        android:layout_height="45sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874"
-        app:srcCompat="@drawable/save" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -106,8 +96,10 @@
 
     <TextView
         android:id="@+id/movieText"
+        android:background="@drawable/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTintMode="src_over"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

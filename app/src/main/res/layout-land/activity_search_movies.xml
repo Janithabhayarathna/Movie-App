@@ -9,21 +9,21 @@
 
     <Button
         android:id="@+id/retreiveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retrieve Movie"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:text="🔎 Retrieve Movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <Button
         android:id="@+id/saveMovieBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save movie to Database"
+        android:text="📂 Save movie to Database"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,17 +32,18 @@
 
     <EditText
         android:id="@+id/movieName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="48dp"
+        android:background="@drawable/textview"
         android:ems="10"
-        android:hint="Movie name"
+        android:hint=" Movie name"
         android:inputType="textAutoCorrect|textPersonName|textAutoComplete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218"
+        app:layout_constraintVertical_bias="0.162"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
@@ -89,22 +90,23 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <TextView
         android:id="@+id/movieText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/textview"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintVertical_bias="0.717" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

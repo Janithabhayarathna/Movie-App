@@ -15,6 +15,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.*
 
 class SearchMovies : AppCompatActivity() {
     lateinit var title: String
@@ -28,6 +29,7 @@ class SearchMovies : AppCompatActivity() {
     lateinit var actors: String
     lateinit var plot: String
     private var info = ""
+    var id = 6
     private lateinit var textOut: TextView
 
     @SuppressLint("SetTextI18n")
@@ -80,17 +82,15 @@ class SearchMovies : AppCompatActivity() {
         btnSave?.setOnClickListener {
 
             val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()  // Create the database
-            val movieDao = db.movieDao()    // Create the DAO
+            val movieDao = db.movieDao() // Create the DAO
 
             runBlocking {
                 launch {
-                    val insertMovie = Movie(6, title, year, rated, released, runtime, genre, director, writer, actors, plot)
+                    val insertMovie = Movie(title, year, rated, released, runtime, genre, director, writer, actors, plot)
                     movieDao.insertMovies(insertMovie)  // Insert the movie
+                    id++
 
-                    val movies: List<Movie> = movieDao.getAll()   // Get all the movies
-                    for (movie in movies) {
-                        textOut.append(movie.title + "\n " + movie.year + "\n " + movie.rated + "\n " + movie.released + "\n " + movie.genre + "\n " + movie.director + "\n " + movie.writer + "\n " + movie.actors + "\n " + movie.plot)
-                    }
+                    Toast.makeText(this@SearchMovies, "✔Movie saved to the database", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -99,6 +99,7 @@ class SearchMovies : AppCompatActivity() {
     override fun onSaveInstanceState(outState : Bundle) {   //Saving the current data as bundle
         super.onSaveInstanceState(outState)
 
+        outState.putInt("idOut", id)
         outState.putString("out", info)
     }
 
@@ -111,6 +112,7 @@ class SearchMovies : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
 
         info = savedInstanceState.getString("out"," ")
+        id = savedInstanceState.getInt("idOut", 0)
         textOut.text = info
     }
 

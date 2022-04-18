@@ -48,7 +48,7 @@ class SearchActors : AppCompatActivity() {
                 }
             }
             for (i in 0 until moviesList.size){
-                output.append(moviesList[i].title + "\n")
+                output.append(moviesList[i].title + "-" + moviesList[i].actors + "\n")
                 out.add(moviesList[i].title)
             }
         }
