@@ -12,11 +12,11 @@ import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
-    var addMovieClicked = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var addMovieClicked = false
 
         // Initialize the elements
         val addMovie = findViewById<Button>(R.id.addMovie)

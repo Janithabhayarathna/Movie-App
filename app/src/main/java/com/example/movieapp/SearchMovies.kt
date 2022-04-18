@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,6 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import java.util.*
 
 class SearchMovies : AppCompatActivity() {
     lateinit var title: String
@@ -28,9 +28,10 @@ class SearchMovies : AppCompatActivity() {
     lateinit var writer: String
     lateinit var actors: String
     lateinit var plot: String
-    private var info = ""
-    var id = 6
+    private var info = " "
     private lateinit var textOut: TextView
+    private var searchMovieClicked = false
+    var saveMovieClicked = false
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,12 +47,14 @@ class SearchMovies : AppCompatActivity() {
 
         btn?.setOnClickListener {
 
+            searchMovieClicked = true
             val movieName = movie!!.text.toString().trim()  // Get the movie name
             if (movieName.isEmpty()) {
+                searchMovieClicked = false
                 Toast.makeText(this, "❗Please enter a movie name", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            val urlString = "https://www.omdbapi.com/?t=$movieName&apikey=ff95b66"; // URL to get the movie details
+            val urlString = "https://www.omdbapi.com/?t=$movieName&apikey=ff95b66" // URL to get the movie details
 
             var data = ""
 
@@ -73,6 +76,7 @@ class SearchMovies : AppCompatActivity() {
                             stb.append(line)
                             line = bf.readLine()
                         }
+
                         data = parseJSON(stb)    // Parse the data
                     }
             }
@@ -81,17 +85,38 @@ class SearchMovies : AppCompatActivity() {
 
         btnSave?.setOnClickListener {
 
-            val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies").build()  // Create the database
-            val movieDao = db.movieDao() // Create the DAO
+            saveMovieClicked = true
+            if (searchMovieClicked) {
+                val db = Room.databaseBuilder(this, AppDatabase::class.java, "movies")
+                    .build()  // Create the database
+                val movieDao = db.movieDao() // Create the DAO
 
-            runBlocking {
-                launch {
-                    val insertMovie = Movie(title, year, rated, released, runtime, genre, director, writer, actors, plot)
-                    movieDao.insertMovies(insertMovie)  // Insert the movie
-                    id++
+                runBlocking {
+                    launch {
+                        val insertMovie = Movie(
+                            title,
+                            year,
+                            rated,
+                            released,
+                            runtime,
+                            genre,
+                            director,
+                            writer,
+                            actors,
+                            plot
+                        )
+                        movieDao.insertMovies(insertMovie)  // Insert the movie
 
-                    Toast.makeText(this@SearchMovies, "✔Movie saved to the database", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@SearchMovies,
+                            "✔Movie saved to the database",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
+            } else {
+                Toast.makeText(this, "❗Please search for a movie first", Toast.LENGTH_LONG).show()
+                saveMovieClicked = false
             }
         }
     }
@@ -99,8 +124,8 @@ class SearchMovies : AppCompatActivity() {
     override fun onSaveInstanceState(outState : Bundle) {   //Saving the current data as bundle
         super.onSaveInstanceState(outState)
 
-        outState.putInt("idOut", id)
         outState.putString("out", info)
+        outState.putBoolean("btnStatus", searchMovieClicked)
     }
 
     /**
@@ -112,7 +137,7 @@ class SearchMovies : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
 
         info = savedInstanceState.getString("out"," ")
-        id = savedInstanceState.getInt("idOut", 0)
+        searchMovieClicked = savedInstanceState.getBoolean("btnStatus", false)
         textOut.text = info
     }
 
@@ -120,6 +145,12 @@ class SearchMovies : AppCompatActivity() {
     suspend fun parseJSON(stb: StringBuilder): String {
 
         val json = JSONObject(stb.toString()) //convert string to JSON object
+        if (json.has("Error")) {
+            searchMovieClicked = false
+            textOut.setTextColor(Color.RED)
+            return " ❗No result found. Please try again after checking the movie name. "
+        }
+
         // Getting the value of the relevant key.
         title = json["Title"].toString()
         year = json["Year"].toString()

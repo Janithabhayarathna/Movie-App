@@ -1,5 +1,7 @@
 package com.example.movieapp
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,6 +17,7 @@ class SearchActors : AppCompatActivity() {
     private var out: ArrayList<String> = ArrayList<String>()
     lateinit var output: TextView
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_actors)
@@ -46,6 +49,11 @@ class SearchActors : AppCompatActivity() {
                         }
                     }
                 }
+            }
+            if (moviesList.isEmpty()) {
+                output.setTextColor(Color.RED)
+                output.text = "❗No movie found."
+                return@setOnClickListener
             }
             for (i in 0 until moviesList.size){
                 output.append(moviesList[i].title + "-" + moviesList[i].actors + "\n")
