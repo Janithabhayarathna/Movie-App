@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApp">
         <activity
+            android:name=".MovieBrowser"
+            android:exported="false" />
+        <activity
+            android:name=".BrowserMovie"
+            android:exported="false" />
+        <activity
+            android:name=".Browser"
+            android:exported="false" />
+        <activity
+            android:name=".movieBrowser"
+            android:exported="false" />
+        <activity
             android:name=".SearchActors"
             android:exported="false" />
         <activity

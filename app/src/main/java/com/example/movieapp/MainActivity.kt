@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val addMovie = findViewById<Button>(R.id.addMovie)
         val searchMovie = findViewById<Button>(R.id.searchMovie)
         val searchActor = findViewById<Button>(R.id.searchActor)
+        val browser = findViewById<Button>(R.id.btnBrowser)
 
         // Add a movie
         addMovie.setOnClickListener {
@@ -120,6 +121,11 @@ class MainActivity : AppCompatActivity() {
         searchActor.setOnClickListener {
             val actorWindow = Intent(this, SearchActors::class.java)
             startActivity(actorWindow)
+        }
+
+        browser.setOnClickListener {
+            val browserWindow = Intent(this, MovieBrowser::class.java)
+            startActivity(browserWindow)
         }
     }
 

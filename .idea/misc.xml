@@ -6,9 +6,13 @@
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/drawable/button.xml" value="0.11" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/drawable/textview.xml" value="0.1615" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout-land/activity_main.xml" value="0.4" />
+        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout-land/activity_movie_browser.xml" value="0.21875" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout-land/activity_search_actors.xml" value="0.6" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout-land/activity_search_movies.xml" value="0.6" />
-        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_browser.xml" value="0.15172101449275363" />
+        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_browser_movie.xml" value="0.16394927536231885" />
+        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_movie_browser.xml" value="0.536" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_search_actors.xml" value="0.536" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/layout/activity_search_movies.xml" value="0.4" />
         <entry key="..\:/IIT/Modules/2nd Year/Mobile/CW/CW 02/Movie-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2105" />

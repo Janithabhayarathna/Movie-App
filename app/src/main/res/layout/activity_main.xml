@@ -14,10 +14,10 @@
         android:text="Add Movies to DB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.374" />
 
     <Button
         android:id="@+id/searchMovie"
@@ -26,10 +26,10 @@
         android:text="Search for Movies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.471" />
 
     <Button
         android:id="@+id/searchActor"
@@ -41,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616" />
+        app:layout_constraintVertical_bias="0.566" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -57,7 +57,7 @@
         android:id="@+id/imageView5"
         android:layout_width="322dp"
         android:layout_height="445dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="448dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,10 +70,10 @@
         android:layout_height="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604"
+        app:layout_constraintVertical_bias="0.556"
         app:srcCompat="@drawable/actors" />
 
     <ImageView
@@ -82,32 +82,53 @@
         android:layout_height="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507"
+        app:layout_constraintVertical_bias="0.462"
         app:srcCompat="@drawable/movie" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="40sp"
-        android:layout_height="40sp"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403"
+        app:layout_constraintVertical_bias="0.367"
         app:srcCompat="@drawable/db" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="81dp"
         android:layout_height="85dp"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/playbtn" />
+
+    <Button
+        android:id="@+id/btnBrowser"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="232dp"
+        android:text="Movie Browser"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="244dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/player" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
